@@ -45,8 +45,16 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -690,7 +698,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">Smile and Sparkle</div>
+            <div class="logo"><img src="logo.png" alt="Smile and Sparkle Clinic"></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#services"><i class="fas fa-teeth"></i> Services</a></li>
