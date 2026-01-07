@@ -833,6 +833,13 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
         }
 
+        /* Form row for age and gender side by side */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -1017,6 +1024,11 @@
             .full-logo-subtitle {
                 font-size: 12px;
                 letter-spacing: 2px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
         }
 
@@ -1247,9 +1259,16 @@
                         <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <strong>Location</strong><br>
-                            Patna, Bihar, India
+                            <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" style="color: #333; text-decoration: none;">
+                                Shop No. 18, Janki Complex,<br>
+                                Near Boring Road Crossing,<br>
+                                Patna - 800001, Bihar
+                            </a>
                         </div>
                     </div>
+                    <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" class="whatsapp-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-bottom: 1rem;">
+                        <i class="fas fa-map-marker-alt"></i> View on Google Maps
+                    </a>
                     <a href="https://wa.me/919430943872?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Smile%20and%20Sparkle%20Clinic." class="whatsapp-btn" target="_blank">
                         Book via WhatsApp
                     </a>
@@ -1262,6 +1281,24 @@
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" required>
                         </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">Age *</label>
+                                <input type="number" id="age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender *</label>
+                                <select id="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
                             <input type="tel" id="phone" required>
@@ -1288,7 +1325,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Additional Information</label>
-                            <textarea id="message" rows="4"></textarea>
+                            <textarea id="message" rows="4" placeholder="Please mention any specific concerns or symptoms..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Appointment Request</button>
                     </form>
@@ -1304,7 +1341,7 @@
                 <span class="mobile-nav-icon appointment-icon"><i class="fas fa-calendar-check"></i></span>
                 <span>Book Appointment</span>
             </a>
-            <a href="https://maps.google.com/?q=Patna+Bihar+India" class="mobile-nav-btn" target="_blank">
+            <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" class="mobile-nav-btn" target="_blank">
                 <span class="mobile-nav-icon location-icon"><i class="fas fa-map-marker-alt"></i></span>
                 <span>Find Clinic</span>
             </a>
@@ -1343,7 +1380,12 @@
                 </div>
             </div>
             <p>&copy; 2026 Smile and Sparkle Clinic. All rights reserved.</p>
-            <p>Patna, Bihar, India | Phone: 9430943872</p>
+            <p>
+                <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" style="color: white; text-decoration: underline;">
+                    Shop No. 18, Janki Complex, Near Boring Road Crossing, Patna - 800001, Bihar
+                </a>
+            </p>
+            <p>Phone: <a href="tel:9430943872" style="color: white; text-decoration: underline;">9430943872</a></p>
             <p style="margin-top: 10px; opacity: 0.8;">Your Smile, Our Priority.</p>
         </div>
     </footer>
@@ -1369,14 +1411,16 @@
             e.preventDefault();
             
             const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const date = document.getElementById('date').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
             
-            // Create WhatsApp message
-            const whatsappMessage = `*New Appointment Request*%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APreferred Date: ${date}%0AService: ${service}%0AAdditional Info: ${message}`;
+            // Create WhatsApp message with new fields
+            const whatsappMessage = `*New Appointment Request*%0A%0A*Patient Details:*%0AName: ${name}%0AAge: ${age}%0AGender: ${gender}%0APhone: ${phone}%0AEmail: ${email}%0A%0A*Appointment Details:*%0APreferred Date: ${date}%0AService: ${service}%0AAdditional Info: ${message}`;
             
             // Redirect to WhatsApp
             window.open(`https://wa.me/919430943872?text=${whatsappMessage}`, '_blank');
@@ -1393,9 +1437,11 @@
         document.getElementById('date').setAttribute('min', today);
 
         // Health Plan Modal
-        document.querySelector('[href="#health-plan"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Our Dental Health Plans:\n\n• Basic Plan: ₹1999/year - 2 checkups + cleaning\n• Premium Plan: ₹4999/year - 4 checkups + cleaning + X-rays\n• Family Plan: ₹9999/year - Covers 4 family members\n\nCall 9430943872 for more details!');
+        document.querySelectorAll('[href="#health-plan"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Our Dental Health Plans:\n\n• Basic Plan: ₹1999/year - 2 checkups + cleaning\n• Premium Plan: ₹4999/year - 4 checkups + cleaning + X-rays\n• Family Plan: ₹9999/year - Covers 4 family members\n\nCall 9430943872 for more details!');
+            });
         });
 
         // Floating Action Button
@@ -1484,6 +1530,12 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Form validation for age
+        document.getElementById('age').addEventListener('input', function() {
+            if (this.value < 1) this.value = 1;
+            if (this.value > 120) this.value = 120;
+        });
     </script>
 </body>
 </html>
