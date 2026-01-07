@@ -6,6 +6,8 @@
     <title>Smile and Sparkle Clinic - Your Smile, Our Priority</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Professional Logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -44,17 +46,87 @@
             padding: 0 2rem;
         }
 
+        /* Professional Logo */
         .logo {
-            height: 50px;
             display: flex;
             align-items: center;
+            gap: 15px;
+            text-decoration: none;
         }
 
-        .logo img {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
             height: 50px;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
+        }
+
+        .logo-circle {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-circle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .logo-icon {
+            font-size: 22px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffffff, #f0f4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: #e0e7ff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.9;
         }
 
         .nav-links {
@@ -67,6 +139,8 @@
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
+            font-weight: 500;
+            font-size: 16px;
         }
 
         .nav-links a:hover {
@@ -364,6 +438,8 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #667eea;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .services-grid {
@@ -419,6 +495,8 @@
         .service-card h3 {
             color: #667eea;
             margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
         /* About Section */
@@ -438,6 +516,8 @@
             color: #667eea;
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .about-text p {
@@ -454,6 +534,7 @@
             padding: 0.5rem 0;
             padding-left: 2rem;
             position: relative;
+            font-size: 1rem;
         }
 
         .features li:before {
@@ -463,6 +544,104 @@
             color: #667eea;
             font-weight: bold;
             font-size: 1.5rem;
+        }
+
+        /* Professional Logo Display in About Section */
+        .logo-display {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .full-logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .full-logo-icon-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .full-logo-circle {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .full-logo-circle::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+        }
+
+        .full-logo-icon {
+            font-size: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .full-logo-text {
+            text-align: center;
+        }
+
+        .full-logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .full-logo-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
         }
 
         /* Contact Section */
@@ -498,7 +677,6 @@
             color: #667eea;
             width: 40px;
             text-align: center;
-            /* Removed animation to keep icons stable */
             transition: color 0.3s;
         }
 
@@ -510,6 +688,7 @@
             color: #333;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 1rem;
         }
 
         .contact-item a:hover {
@@ -587,6 +766,67 @@
             margin-bottom: 60px;
         }
 
+        .footer-logo {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo-icon-wrapper {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-circle {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-icon {
+            font-size: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .footer-logo-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            color: #e0e7ff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            opacity: 0.9;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -650,6 +890,49 @@
             footer {
                 margin-bottom: 80px;
             }
+
+            .logo-container {
+                gap: 12px;
+            }
+
+            .logo-main {
+                font-size: 18px;
+            }
+
+            .logo-subtitle {
+                font-size: 9px;
+            }
+
+            .logo-icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-icon {
+                font-size: 18px;
+            }
+
+            .full-logo {
+                padding: 30px;
+            }
+
+            .full-logo-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .full-logo-icon {
+                font-size: 32px;
+            }
+
+            .full-logo-main {
+                font-size: 28px;
+            }
+
+            .full-logo-subtitle {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
         }
 
         /* Floating Action Button for Desktop */
@@ -698,10 +981,22 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo"><img src="logo.png" alt="Smile and Sparkle Clinic"></div>
+            <a href="#home" class="logo">
+                <div class="logo-container">
+                    <div class="logo-icon-wrapper">
+                        <div class="logo-circle">
+                            <i class="logo-icon fas fa-tooth"></i>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-main">Smile & Sparkle</div>
+                        <div class="logo-subtitle">Dental Clinic</div>
+                    </div>
+                </div>
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services"><i class="fas fa-teeth"></i> Services</a></li>
+                <li><a href="#services"><i class="fas fa-tooth"></i> Services</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
             </ul>
@@ -811,8 +1106,18 @@
                         <li><i class="fas fa-heart"></i> Patient-Centered Care</li>
                     </ul>
                 </div>
-                <div class="about-image">
-                    <img src="smiling-image.jpg" alt="Smiling patient" style="width: 100%; height: auto; min-height: 300px; object-fit: cover; border-radius: 15px; display: block;">
+                <div class="logo-display">
+                    <div class="full-logo">
+                        <div class="full-logo-icon-wrapper">
+                            <div class="full-logo-circle">
+                                <i class="full-logo-icon fas fa-tooth"></i>
+                            </div>
+                        </div>
+                        <div class="full-logo-text">
+                            <div class="full-logo-main">Smile & Sparkle</div>
+                            <div class="full-logo-subtitle">Professional Dental Care</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -925,8 +1230,22 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <div class="footer-logo">
+                <div class="footer-logo-container">
+                    <div class="footer-logo-icon-wrapper">
+                        <div class="footer-logo-circle">
+                            <i class="footer-logo-icon fas fa-tooth"></i>
+                        </div>
+                    </div>
+                    <div class="footer-logo-text">
+                        <div class="footer-logo-main">Smile & Sparkle</div>
+                        <div class="footer-logo-subtitle">Dental Clinic</div>
+                    </div>
+                </div>
+            </div>
             <p>&copy; 2026 Smile and Sparkle Clinic. All rights reserved.</p>
-            <p>Your Smile, Our Priority.</p>
+            <p>Patna, Bihar, India | Phone: 9430943872</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Your Smile, Our Priority.</p>
         </div>
     </footer>
 
