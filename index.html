@@ -519,7 +519,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .service-card {
@@ -571,74 +570,6 @@
             margin-bottom: 1rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-        }
-
-        /* Clinic Timings */
-        .timings-container {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
-        .timings-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #667eea;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        .timings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .timing-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .timing-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .timing-icon {
-            font-size: 2.5rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .timing-slot {
-            margin-bottom: 1rem;
-        }
-
-        .timing-slot h4 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .timing-slot p {
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .timing-note {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px dashed #ddd;
-            font-style: italic;
-            color: #666;
-            font-size: 0.9rem;
         }
 
         /* About Section */
@@ -1096,14 +1027,6 @@
                 grid-template-columns: 1fr;
                 gap: 0;
             }
-
-            .timings-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timings-title {
-                font-size: 1.5rem;
-            }
         }
 
         /* Floating Action Button for Desktop */
@@ -1242,77 +1165,33 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-tooth"></i></div>
-                    <h3>Extraction</h3>
-                    <p>Professional tooth extraction with minimal discomfort using modern techniques and anesthesia.</p>
+                    <h3>General Dentistry</h3>
+                    <p>Comprehensive dental care including check-ups, cleanings, and preventive treatments to keep your teeth healthy.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-spa"></i></div>
-                    <h3>Scaling and Polishing</h3>
-                    <p>Professional teeth cleaning to remove plaque, tartar, and stains for healthier gums and brighter smile.</p>
+                    <div class="service-icon"><i class="fas fa-star"></i></div>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Teeth whitening, veneers, and smile makeovers to give you the confident smile you've always wanted.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-teeth-open"></i></div>
+                    <h3>Dental Implants</h3>
+                    <p>Permanent tooth replacement solutions that look, feel, and function like natural teeth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>Gentle and friendly dental care for children in a comfortable and welcoming environment.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-teeth"></i></div>
-                    <h3>Prosthetics Denture Replacement</h3>
-                    <p>Custom-made dentures for natural-looking tooth replacement and restored functionality.</p>
+                    <h3>Orthodontics</h3>
+                    <p>Braces and aligners to straighten teeth and correct bite issues for all ages.</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-microscope"></i></div>
-                    <h3>Root Canal Treatment</h3>
-                    <p>Advanced RCT procedures to save infected teeth and relieve pain while preserving natural teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-crown"></i></div>
-                    <h3>Crown and Bridge</h3>
-                    <p>Dental crowns and bridges to restore damaged teeth and replace missing teeth with natural aesthetics.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-fill-drip"></i></div>
-                    <h3>Filling and Restoration</h3>
-                    <p>Tooth-colored fillings and restorations to repair cavities and restore tooth structure.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-implant"></i></div>
-                    <h3>Dental Implant</h3>
-                    <p>Permanent tooth replacement solution that looks, feels, and functions like natural teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
-                    <h3>Removal of Impacted Tooth</h3>
-                    <p>Expert surgical removal of impacted wisdom teeth and other problematic teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-scalpel"></i></div>
-                    <h3>Minor Surgical Procedures</h3>
-                    <p>Various minor oral surgeries performed with precision and care in a sterile environment.</p>
-                </div>
-            </div>
-
-            <!-- Clinic Timings Section -->
-            <div class="timings-container">
-                <h3 class="timings-title">Clinic Timings</h3>
-                <div class="timings-grid">
-                    <div class="timing-card">
-                        <div class="timing-icon"><i class="fas fa-sun"></i></div>
-                        <div class="timing-slot">
-                            <h4>Morning Session</h4>
-                            <p>9:00 AM - 12:00 PM</p>
-                            <p>Monday, Tuesday, Wednesday, Friday, Saturday, Sunday</p>
-                        </div>
-                        <div class="timing-note">
-                            Evening clinic closed on Thursday and Sunday
-                        </div>
-                    </div>
-                    <div class="timing-card">
-                        <div class="timing-icon"><i class="fas fa-moon"></i></div>
-                        <div class="timing-slot">
-                            <h4>Evening Session</h4>
-                            <p>5:30 PM - 7:30 PM</p>
-                            <p>Monday, Tuesday, Wednesday, Friday, Saturday</p>
-                        </div>
-                        <div class="timing-note">
-                            Open all days except Thursday (Evening)
-                        </div>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>Emergency Care</h3>
+                    <p>Immediate dental care for urgent situations including toothaches, injuries, and infections.</p>
                 </div>
             </div>
         </div>
@@ -1433,16 +1312,13 @@
                             <label for="service">Service Required *</label>
                             <select id="service" required>
                                 <option value="">Select a service</option>
-                                <option value="Extraction">Extraction</option>
-                                <option value="Scaling and Polishing">Scaling and Polishing</option>
-                                <option value="Prosthetics Denture Replacement">Prosthetics Denture Replacement</option>
-                                <option value="Root Canal Treatment">Root Canal Treatment</option>
-                                <option value="Crown and Bridge">Crown and Bridge</option>
-                                <option value="Filling and Restoration">Filling and Restoration</option>
-                                <option value="Dental Implant">Dental Implant</option>
-                                <option value="Removal of Impacted Tooth">Removal of Impacted Tooth</option>
-                                <option value="Minor Surgical Procedures">Minor Surgical Procedures</option>
-                                <option value="Other">Other</option>
+                                <option value="General Dentistry">General Dentistry</option>
+                                <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                                <option value="Dental Implants">Dental Implants</option>
+                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                                <option value="Orthodontics">Orthodontics</option>
+                                <option value="Emergency Care">Emergency Care</option>
+                                <option value="Other's">Other's</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1651,5 +1527,5 @@
             if (this.value > 120) this.value = 120;
         });
     </script>
-</body> 
+</body>
 </html>
