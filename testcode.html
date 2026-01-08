@@ -3,1088 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smile and Sparkle Clinic - Your Smile, Our Priority</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for Professional Logo -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Customer Reviews - Apollo Dental Care</title>
     <style>
-        * {
+        /* General Page Styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        /* Professional Logo */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-        }
-
-        .logo-circle {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-circle::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .logo-icon {
-            font-size: 22px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-main {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            background: linear-gradient(to right, #ffffff, #f0f4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            color: #e0e7ff;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 2px;
-            opacity: 0.9;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Smooth Image Carousel */
-        .carousel-container {
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-            height: 500px;
-        }
-
-        .carousel {
-            display: flex;
-            width: 500%;
-            height: 100%;
-            animation: slide 50s infinite ease-in-out;
-        }
-
-        .carousel-slide {
-            width: 20%;
-            height: 100%;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 10s ease;
-        }
-
-        .carousel-slide:hover img {
-            transform: scale(1.05);
-        }
-
-        .carousel-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        /* Smooth step-by-step animation */
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-                animation-timing-function: ease-in-out;
-            }
-            16% {
-                transform: translateX(0);
-                animation-timing-function: ease-in-out;
-            }
-            20% {
-                transform: translateX(-20%);
-                animation-timing-function: ease-in-out;
-            }
-            36% {
-                transform: translateX(-20%);
-                animation-timing-function: ease-in-out;
-            }
-            40% {
-                transform: translateX(-40%);
-                animation-timing-function: ease-in-out;
-            }
-            56% {
-                transform: translateX(-40%);
-                animation-timing-function: ease-in-out;
-            }
-            60% {
-                transform: translateX(-60%);
-                animation-timing-function: ease-in-out;
-            }
-            76% {
-                transform: translateX(-60%);
-                animation-timing-function: ease-in-out;
-            }
-            80% {
-                transform: translateX(-80%);
-                animation-timing-function: ease-in-out;
-            }
-            96% {
-                transform: translateX(-80%);
-                animation-timing-function: ease-in-out;
-            }
-            100% {
-                transform: translateX(0);
-                animation-timing-function: ease-in-out;
-            }
-        }
-
-        /* Carousel navigation dots */
-        .carousel-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: scale(1.2);
-        }
-
-        .carousel-dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: both;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Appointment Form Section (Below Hero) */
-        .appointment-section {
-            padding: 80px 2rem;
-            background: #f8f9fa;
+            color: #3c4043;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .section-title {
+        /* Top Summary Section */
+        .reviews-header {
             text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reviews-header h1 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #667eea;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .booking-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
+        .rating-summary {
+            font-size: 1.2rem;
+            color: #5f6368;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+        .big-stars {
+            color: #fbbc05;
+            font-size: 1.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #667eea;
+        /* The Responsive Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* Individual Card Styling */
+        .review-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .user-meta {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+        .name-date h4 {
+            margin: 0;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            color: #202124;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        .name-date span {
+            font-size: 0.85rem;
+            color: #70757a;
         }
 
-        /* Form row for age and gender side by side */
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .google-icon {
+            width: 18px;
+            height: 18px;
         }
 
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem 4rem;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo-container {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .footer-logo-icon-wrapper {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-logo-circle {
-            width: 100%;
-            height: 100%;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-logo-icon {
-            font-size: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-logo-main {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-            line-height: 1.1;
-        }
-
-        .footer-logo-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 9px;
-            font-weight: 500;
-            color: #e0e7ff;
+        .stars {
+            color: #fbbc05;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 2px;
-            opacity: 0.9;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .comment {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4d5156;
+            margin: 0;
         }
 
-        /* Mobile Bottom Navigation */
-        .mobile-bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 10px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .mobile-nav-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-        }
-
-        .mobile-nav-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 5px;
-            text-decoration: none;
-            color: #667eea;
-            font-size: 0.7rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-nav-btn:hover {
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .mobile-nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .mobile-nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .mobile-nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #667eea;
-        }
-
-        /* Animated Icons for Mobile Navigation */
-        .appointment-icon {
-            animation: appointmentPulse 2s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        .location-icon {
-            animation: locationBounce 2s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        .call-icon {
-            animation: phoneRing 1.5s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        @keyframes appointmentPulse {
-            0%, 100% { 
-                transform: scale(1); 
-                color: #667eea;
-                text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
-            }
-            50% { 
-                transform: scale(1.2); 
-                color: #764ba2;
-                text-shadow: 0 0 15px rgba(118, 75, 162, 0.8);
-            }
-        }
-
-        @keyframes locationBounce {
-            0%, 100% { 
-                transform: translateY(0) rotate(0deg); 
-            }
-            25% { 
-                transform: translateY(-5px) rotate(-10deg); 
-            }
-            75% { 
-                transform: translateY(-5px) rotate(10deg); 
-            }
-        }
-
-        @keyframes phoneRing {
-            0%, 100% { 
-                transform: rotate(0deg); 
-            }
-            10%, 30%, 50%, 70%, 90% { 
-                transform: rotate(-15deg); 
-            }
-            20%, 40%, 60%, 80% { 
-                transform: rotate(15deg); 
-            }
-        }
-
-        /* Add glow effects on hover */
-        .mobile-nav-btn:hover .appointment-icon {
-            animation: appointmentPulse 0.8s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        .mobile-nav-btn:hover .location-icon {
-            animation: locationBounce 1s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        .mobile-nav-btn:hover .call-icon {
-            animation: phoneRing 0.8s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .carousel-container {
-                height: 300px;
-            }
-
-            .carousel-nav {
-                bottom: 10px;
-            }
-
-            .carousel-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .mobile-bottom-nav {
-                display: block;
-            }
-
-            footer {
-                margin-bottom: 80px;
-            }
-
-            .logo-container {
-                gap: 12px;
-            }
-
-            .logo-main {
-                font-size: 18px;
-            }
-
-            .logo-subtitle {
-                font-size: 9px;
-            }
-
-            .logo-icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-
-            .logo-icon {
-                font-size: 18px;
-            }
-
-            .form-row {
+        /* Responsive adjustments for mobile */
+        @media (max-width: 600px) {
+            .reviews-grid {
                 grid-template-columns: 1fr;
-                gap: 0;
-            }
-        }
-
-        /* Floating Action Button for Desktop */
-        .fab-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            display: none;
-        }
-
-        .fab {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: pulse 2s infinite;
-        }
-
-        .fab:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @media (min-width: 769px) {
-            .fab-container {
-                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#home" class="logo">
-                <div class="logo-container">
-                    <div class="logo-icon-wrapper">
-                        <div class="logo-circle">
-                            <i class="logo-icon fas fa-tooth"></i>
-                        </div>
-                    </div>
-                    <div class="logo-text">
-                        <div class="logo-main">Smile & Sparkle</div>
-                        <div class="logo-subtitle">Dental Clinic</div>
-                    </div>
-                </div>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="#appointment"><i class="fas fa-calendar-check"></i> Appointment</a></li>
-            </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Smooth Image Carousel -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-slide">
-                <img src="slide (1).jpg" alt="Modern Dental Clinic">
-                <div class="carousel-overlay">
-                    <h2>State-of-the-Art Dental Facility</h2>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="slide (2).jpg" alt="Dental Examination">
-                <div class="carousel-overlay">
-                    <h2>Expert Dental Care</h2>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="slide (3).jpg" alt="Happy Patient">
-                <div class="carousel-overlay">
-                    <h2>Creating Beautiful Smiles</h2>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="slide (4).jpg" alt="Dental Technology">
-                <div class="carousel-overlay">
-                    <h2>Advanced Technology</h2>
-                </div>
-            </div>
-            <div class="carousel-slide">
-                <img src="slide (5).jpg" alt="Comfortable Environment">
-                <div class="carousel-overlay">
-                    <h2>Comfortable Environment</h2>
-                </div>
-            </div>
-        </div>
-        <!-- Carousel Navigation Dots -->
-        <div class="carousel-nav">
-            <div class="carousel-dot active" data-slide="0"></div>
-            <div class="carousel-dot" data-slide="1"></div>
-            <div class="carousel-dot" data-slide="2"></div>
-            <div class="carousel-dot" data-slide="3"></div>
-            <div class="carousel-dot" data-slide="4"></div>
+<div class="container">
+    <div class="reviews-header">
+        <h1>What Our Patients Say</h1>
+        <div class="rating-summary">
+            <span class="big-stars">★★★★★</span>
+            <span><strong>4.9/5</strong> based on 1,200+ Google reviews</span>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Welcome to Smile and Sparkle Clinic</h1>
-            <p>Your Smile, Our Priority.</p>
-            <div class="cta-buttons">
-                <a href="#appointment" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
-                <a href="tel:9430943872" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Form Section -->
-    <section class="appointment-section" id="appointment">
-        <div class="container">
-            <h2 class="section-title">Book Your Appointment</h2>
-            <div class="booking-form">
-                <form id="appointmentForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="age">Age *</label>
-                            <input type="number" id="age" min="1" max="120" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender *</label>
-                            <select id="gender" required>
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                                <option value="Prefer not to say">Prefer not to say</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Preferred Date *</label>
-                        <input type="date" id="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Required *</label>
-                        <select id="service" required>
-                            <option value="">Select a service</option>
-                            <option value="Extraction">Extraction</option>
-                            <option value="Scaling and Polishing">Scaling and Polishing</option>
-                            <option value="Prosthetics Denture Replacement">Prosthetics Denture Replacement</option>
-                            <option value="Root Canal Treatment">Root Canal Treatment</option>
-                            <option value="Crown and Bridge">Crown and Bridge</option>
-                            <option value="Filling and Restoration">Filling and Restoration</option>
-                            <option value="Dental Implant">Dental Implant</option>
-                            <option value="Removal of Impacted Tooth">Removal of Impacted Tooth</option>
-                            <option value="Minor Surgical Procedures">Minor Surgical Procedures</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Additional Information</label>
-                        <textarea id="message" rows="4" placeholder="Please mention any specific concerns or symptoms..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Appointment Request</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <div class="footer-logo-container">
-                    <div class="footer-logo-icon-wrapper">
-                        <div class="footer-logo-circle">
-                            <i class="footer-logo-icon fas fa-tooth"></i>
-                        </div>
-                    </div>
-                    <div class="footer-logo-text">
-                        <div class="footer-logo-main">Smile & Sparkle</div>
-                        <div class="footer-logo-subtitle">Dental Clinic</div>
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="card-top">
+                <div class="user-meta">
+                    <div class="profile-icon" style="background-color: #546e7a;">P</div>
+                    <div class="name-date">
+                        <h4>Praveen Kumar Bharghav</h4>
+                        <span>4 August 2023</span>
                     </div>
                 </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-icon" alt="G">
             </div>
-            <p>&copy; 2026 Smile and Sparkle Clinic. All rights reserved.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Your Smile, Our Priority.</p>
+            <div class="stars">★★★★★</div>
+            <p class="comment">The team at Apollo Dental Care is attentive and caring. They made sure I understood the aftercare instructions thoroughly.</p>
         </div>
-    </footer>
 
-    <!-- Mobile Bottom Navigation -->
-    <div class="mobile-bottom-nav">
-        <div class="mobile-nav-grid">
-            <a href="#appointment" class="mobile-nav-btn">
-                <span class="mobile-nav-icon appointment-icon"><i class="fas fa-calendar-check"></i></span>
-                <span>Book Appointment</span>
-            </a>
-            <a href="https://maps.app.goo.gl/BmgeDk9XtJNuk1zC9" class="mobile-nav-btn" target="_blank">
-                <span class="mobile-nav-icon location-icon"><i class="fas fa-map-marker-alt"></i></span>
-                <span>Location</span>
-            </a>
-            <a href="tel:9430943872" class="mobile-nav-btn">
-                <span class="mobile-nav-icon call-icon"><i class="fas fa-phone-alt"></i></span>
-                <span>Call Now</span>
-            </a>
+        <div class="review-card">
+            <div class="card-top">
+                <div class="user-meta">
+                    <div class="profile-icon" style="background-color: #7e57c2;">G</div>
+                    <div class="name-date">
+                        <h4>Gaurav Kumar Bharati</h4>
+                        <span>4 August 2023</span>
+                    </div>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-icon" alt="G">
+            </div>
+            <div class="stars">★★★★★</div>
+            <p class="comment">I was impressed by the thoroughness of the dental examination. The dentist took the time to listen to my concerns and provided personalized advice.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="card-top">
+                <div class="user-meta">
+                    <div class="profile-icon" style="background-color: #ec407a;">B</div>
+                    <div class="name-date">
+                        <h4>Brajesh Kumar</h4>
+                        <span>4 August 2023</span>
+                    </div>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-icon" alt="G">
+            </div>
+            <div class="stars">★★★★★</div>
+            <p class="comment">The dental hygienist did an excellent job with my cleaning. My teeth felt squeaky clean afterward!</p>
+        </div>
+
+        <div class="review-card">
+            <div class="card-top">
+                <div class="user-meta">
+                    <div class="profile-icon" style="background-color: #26a69a;">R</div>
+                    <div class="name-date">
+                        <h4>Rahul Deo Sharma</h4>
+                        <span>4 August 2023</span>
+                    </div>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-icon" alt="G">
+            </div>
+            <div class="stars">★★★★★</div>
+            <p class="comment">The dentists at Apollo Dental Care are not only skilled but also patient and compassionate. They explained every step of the process.</p>
         </div>
     </div>
+</div>
 
-    <!-- Floating Action Button for Desktop -->
-    <div class="fab-container">
-        <div class="fab" id="fabButton">
-            <i class="fas fa-calendar-plus"></i>
-        </div>
-    </div>
-
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Form Submission
-        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const gender = document.getElementById('gender').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const date = document.getElementById('date').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Create WhatsApp message with new fields
-            const whatsappMessage = `*New Appointment Request*%0A%0A*Patient Details:*%0AName: ${name}%0AAge: ${age}%0AGender: ${gender}%0APhone: ${phone}%0AEmail: ${email}%0A%0A*Appointment Details:*%0APreferred Date: ${date}%0AService: ${service}%0AAdditional Info: ${message}`;
-            
-            // Redirect to WhatsApp
-            window.open(`https://wa.me/919430943872?text=${whatsappMessage}`, '_blank');
-            
-            // Show success message
-            alert('Thank you! You will be redirected to WhatsApp to complete your booking.');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date').setAttribute('min', today);
-
-        // Floating Action Button
-        document.getElementById('fabButton').addEventListener('click', function() {
-            document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // Carousel Navigation
-        const carouselDots = document.querySelectorAll('.carousel-dot');
-        const carousel = document.querySelector('.carousel');
-        
-        // Update active dot based on carousel position
-        function updateActiveDot() {
-            const transformValue = getComputedStyle(carousel).transform;
-            const matrix = new WebKitCSSMatrix(transformValue);
-            const currentSlide = Math.round(-matrix.m41 / (document.querySelector('.carousel-slide').offsetWidth));
-            
-            carouselDots.forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-        
-        // Manual navigation with dots
-        carouselDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                // Calculate the transform percentage based on slide index
-                const translateX = -index * 20; // 20% per slide
-                carousel.style.animation = 'none'; // Pause automatic animation
-                carousel.style.transform = `translateX(${translateX}%)`;
-                
-                // Update active dot
-                carouselDots.forEach(d => d.classList.remove('active'));
-                dot.classList.add('active');
-                
-                // Resume animation after 10 seconds
-                setTimeout(() => {
-                    carousel.style.animation = 'slide 50s infinite ease-in-out';
-                }, 10000);
-            });
-        });
-        
-        // Update dots every second
-        setInterval(updateActiveDot, 1000);
-
-        // Form validation for age
-        document.getElementById('age').addEventListener('input', function() {
-            if (this.value < 1) this.value = 1;
-            if (this.value > 120) this.value = 120;
-        });
-
-        // Add ripple effect to mobile buttons
-        document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(102, 126, 234, 0.3);
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                `;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add CSS for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
