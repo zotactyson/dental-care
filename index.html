@@ -341,162 +341,8 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* Mobile Bottom Navigation */
-        .mobile-bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 10px;
-        }
-
-        .mobile-nav-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
-        }
-
-        .mobile-nav-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 5px;
-            text-decoration: none;
-            color: #667eea;
-            font-size: 0.7rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-nav-btn:hover {
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        .mobile-nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .mobile-nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .mobile-nav-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Animated Icons for Mobile Navigation using Font Awesome */
-        .appointment-icon {
-            animation: appointmentPulse 2s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        .location-icon {
-            animation: locationBounce 2s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        .aboutus-icon {
-            animation: aboutusPulse 2s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        .callback-icon {
-            animation: phoneRing 1.5s infinite ease-in-out;
-            color: #667eea;
-        }
-
-        @keyframes appointmentPulse {
-            0%, 100% { 
-                transform: scale(1); 
-                color: #667eea;
-                text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
-            }
-            50% { 
-                transform: scale(1.2); 
-                color: #764ba2;
-                text-shadow: 0 0 15px rgba(118, 75, 162, 0.8);
-            }
-        }
-
-        @keyframes locationBounce {
-            0%, 100% { 
-                transform: translateY(0) rotate(0deg); 
-            }
-            25% { 
-                transform: translateY(-5px) rotate(-10deg); 
-            }
-            75% { 
-                transform: translateY(-5px) rotate(10deg); 
-            }
-        }
-
-        @keyframes aboutusPulse {
-            0%, 100% { 
-                transform: scale(1); 
-                color: #667eea;
-            }
-            50% { 
-                transform: scale(1.1); 
-                color: #764ba2;
-            }
-        }
-
-        @keyframes phoneRing {
-            0%, 100% { 
-                transform: rotate(0deg); 
-            }
-            10%, 30%, 50%, 70%, 90% { 
-                transform: rotate(-15deg); 
-            }
-            20%, 40%, 60%, 80% { 
-                transform: rotate(15deg); 
-            }
-        }
-
-        /* Add glow effects on hover */
-        .mobile-nav-btn:hover .appointment-icon {
-            animation: appointmentPulse 0.8s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        .mobile-nav-btn:hover .location-icon {
-            animation: locationBounce 1s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        .mobile-nav-btn:hover .aboutus-icon {
-            animation: aboutusPulse 0.8s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        .mobile-nav-btn:hover .callback-icon {
-            animation: phoneRing 0.8s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
-        }
-
-        /* Services Section */
-        .services {
+        /* Appointment Form Section (Below Hero) */
+        .appointment-section {
             padding: 80px 2rem;
             background: #f8f9fa;
         }
@@ -515,289 +361,13 @@
             font-weight: 700;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transform: translateX(-100%);
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite;
-            color: #667eea;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .service-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 2rem;
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            color: #667eea;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .features {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .features li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1rem;
-        }
-
-        .features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        /* Professional Logo Display in About Section */
-        .logo-display {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .full-logo {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            padding: 40px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-            border: 1px solid rgba(102, 126, 234, 0.1);
-        }
-
-        .full-logo-icon-wrapper {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .full-logo-circle {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
-        }
-
-        .full-logo-circle::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: logoGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes logoGlow {
-            0%, 100% { 
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% { 
-                opacity: 0.8;
-                transform: scale(1.02);
-            }
-        }
-
-        .full-logo-icon {
-            font-size: 48px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .full-logo-text {
-            text-align: center;
-        }
-
-        .full-logo-main {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .full-logo-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: #667eea;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 2rem;
-            background: #f8f9fa;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Stable Contact Icons - No Animation */
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            gap: 1rem;
-        }
-
-        .contact-item-icon {
-            font-size: 1.8rem;
-            color: #667eea;
-            width: 40px;
-            text-align: center;
-            transition: color 0.3s;
-        }
-
-        .contact-item:hover .contact-item-icon {
-            color: #764ba2;
-        }
-
-        .contact-item a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 1rem;
-        }
-
-        .contact-item a:hover {
-            color: #667eea;
-        }
-
-        /* WhatsApp Button - Clean without Icon */
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            font-weight: bold;
-            text-align: center;
-            width: 100%;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            background: #1da851;
-        }
-
-        /* Booking Form */
         .booking-form {
             background: white;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .form-group {
@@ -963,64 +533,8 @@
                 font-size: 1.2rem;
             }
 
-            .about-content,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section-title {
                 font-size: 2rem;
-            }
-
-            .mobile-bottom-nav {
-                display: block;
-            }
-
-            footer {
-                margin-bottom: 80px;
-            }
-
-            .logo-container {
-                gap: 12px;
-            }
-
-            .logo-main {
-                font-size: 18px;
-            }
-
-            .logo-subtitle {
-                font-size: 9px;
-            }
-
-            .logo-icon-wrapper {
-                width: 40px;
-                height: 40px;
-            }
-
-            .logo-icon {
-                font-size: 18px;
-            }
-
-            .full-logo {
-                padding: 30px;
-            }
-
-            .full-logo-icon-wrapper {
-                width: 80px;
-                height: 80px;
-            }
-
-            .full-logo-icon {
-                font-size: 32px;
-            }
-
-            .full-logo-main {
-                font-size: 28px;
-            }
-
-            .full-logo-subtitle {
-                font-size: 12px;
-                letter-spacing: 2px;
             }
 
             .form-row {
@@ -1090,9 +604,8 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#services"><i class="fas fa-tooth"></i> Services</a></li>
                 <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                <li><a href="appointment.html"><i class="fas fa-calendar-check"></i> Appointment</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -1152,214 +665,77 @@
             <h1>Welcome to Smile and Sparkle Clinic</h1>
             <p>Your Smile, Our Priority.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                <a href="appointment.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
                 <a href="tel:9430943872" class="btn btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tooth"></i></div>
-                    <h3>General Dentistry</h3>
-                    <p>Comprehensive dental care including check-ups, cleanings, and preventive treatments to keep your teeth healthy.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-star"></i></div>
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Teeth whitening, veneers, and smile makeovers to give you the confident smile you've always wanted.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-teeth-open"></i></div>
-                    <h3>Dental Implants</h3>
-                    <p>Permanent tooth replacement solutions that look, feel, and function like natural teeth.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-baby"></i></div>
-                    <h3>Pediatric Dentistry</h3>
-                    <p>Gentle and friendly dental care for children in a comfortable and welcoming environment.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-teeth"></i></div>
-                    <h3>Orthodontics</h3>
-                    <p>Braces and aligners to straighten teeth and correct bite issues for all ages.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-ambulance"></i></div>
-                    <h3>Emergency Care</h3>
-                    <p>Immediate dental care for urgent situations including toothaches, injuries, and infections.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Smile and Sparkle Clinic</h2>
-                    <p>At Smile and Sparkle Clinic, we are committed to providing exceptional dental care with a personal touch. Our experienced team of dental professionals uses the latest technology and techniques to ensure your comfort and satisfaction.</p>
-                    <p>We believe that everyone deserves a healthy, beautiful smile. That's why we offer a comprehensive range of dental services tailored to meet your individual needs.</p>
-                    <ul class="features">
-                        <li><i class="fas fa-user-md"></i> Experienced and Qualified Dentists</li>
-                        <li><i class="fas fa-microscope"></i> State-of-the-Art Equipment</li>
-                        <li><i class="fas fa-spa"></i> Comfortable and Hygienic Environment</li>
-                        <li><i class="fas fa-rupee-sign"></i> Affordable Treatment Plans</li>
-                        <li><i class="fas fa-first-aid"></i> Emergency Services Available</li>
-                        <li><i class="fas fa-heart"></i> Patient-Centered Care</li>
-                    </ul>
-                </div>
-                <div class="logo-display">
-                    <div class="full-logo">
-                        <div class="full-logo-icon-wrapper">
-                            <div class="full-logo-circle">
-                                <i class="full-logo-icon fas fa-tooth"></i>
-                            </div>
-                        </div>
-                        <div class="full-logo-text">
-                            <div class="full-logo-main">Smile & Sparkle</div>
-                            <div class="full-logo-subtitle">Professional Dental Care</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Booking Section -->
-    <section class="contact" id="contact">
+    <!-- Appointment Form Section -->
+    <section class="appointment-section" id="appointment">
         <div class="container">
             <h2 class="section-title">Book Your Appointment</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 style="color: #667eea; margin-bottom: 2rem;">Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div>
-                            <strong>Phone</strong><br>
-                            <a href="tel:9430943872">9430943872</a>
-                        </div>
+            <div class="booking-form">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div>
-                            <strong>WhatsApp</strong><br>
-                            <a href="https://wa.me/919430943872">9430943872</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <strong>Location</strong><br>
-                            <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" style="color: #333; text-decoration: none;">
-                                Shop No. 18, Janki Complex,<br>
-                                Near Boring Road Crossing,<br>
-                                Patna - 800001, Bihar
-                            </a>
-                        </div>
-                    </div>
-                    <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" class="whatsapp-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-bottom: 1rem;">
-                        <i class="fas fa-map-marker-alt"></i> View on Google Maps
-                    </a>
-                    <a href="https://wa.me/919430943872?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Smile%20and%20Sparkle%20Clinic." class="whatsapp-btn" target="_blank">
-                        Book via WhatsApp
-                    </a>
-                </div>
-
-                <div class="booking-form">
-                    <h3 style="color: #667eea; margin-bottom: 1.5rem;">Appointment Form</h3>
-                    <form id="appointmentForm">
+                    
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="age">Age *</label>
-                                <input type="number" id="age" min="1" max="120" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="gender">Gender *</label>
-                                <select id="gender" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
-                                    <option value="Prefer not to say">Prefer not to say</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" required>
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" min="1" max="120" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Preferred Date *</label>
-                            <input type="date" id="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Required *</label>
-                            <select id="service" required>
-                                <option value="">Select a service</option>
-                                <option value="General Dentistry">General Dentistry</option>
-                                <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
-                                <option value="Dental Implants">Dental Implants</option>
-                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
-                                <option value="Orthodontics">Orthodontics</option>
-                                <option value="Emergency Care">Emergency Care</option>
-                                <option value="Other's">Other's</option>
+                            <label for="gender">Gender *</label>
+                            <select id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Additional Information</label>
-                            <textarea id="message" rows="4" placeholder="Please mention any specific concerns or symptoms..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Appointment Request</button>
-                    </form>
-                </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Extraction">Extraction</option>
+                            <option value="Scaling and Polishing">Scaling and Polishing</option>
+                            <option value="Prosthetics Denture Replacement">Prosthetics Denture Replacement</option>
+                            <option value="Root Canal Treatment">Root Canal Treatment</option>
+                            <option value="Crown and Bridge">Crown and Bridge</option>
+                            <option value="Filling and Restoration">Filling and Restoration</option>
+                            <option value="Dental Implant">Dental Implant</option>
+                            <option value="Removal of Impacted Tooth">Removal of Impacted Tooth</option>
+                            <option value="Minor Surgical Procedures">Minor Surgical Procedures</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" rows="4" placeholder="Please mention any specific concerns or symptoms..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Appointment Request</button>
+                </form>
             </div>
         </div>
     </section>
-
-    <!-- Mobile Bottom Navigation -->
-    <div class="mobile-bottom-nav">
-        <div class="mobile-nav-grid">
-            <a href="#contact" class="mobile-nav-btn">
-                <span class="mobile-nav-icon appointment-icon"><i class="fas fa-calendar-check"></i></span>
-                <span>Book Appointment</span>
-            </a>
-            <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" class="mobile-nav-btn" target="_blank">
-                <span class="mobile-nav-icon location-icon"><i class="fas fa-map-marker-alt"></i></span>
-                <span>Find Clinic</span>
-            </a>
-            <a href="about.html" class="mobile-nav-btn">
-                <span class="mobile-nav-icon aboutus-icon"><i class="fas fa-info-circle"></i></span>
-                <span>About Us</span>
-            </a>
-            <a href="tel:9430943872" class="mobile-nav-btn">
-                <span class="mobile-nav-icon callback-icon"><i class="fas fa-phone-volume"></i></span>
-                <span>Call Back</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Floating Action Button for Desktop -->
-    <div class="fab-container">
-        <div class="fab" id="fabButton">
-            <i class="fas fa-calendar-plus"></i>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -1378,12 +754,6 @@
                 </div>
             </div>
             <p>&copy; 2026 Smile and Sparkle Clinic. All rights reserved.</p>
-            <p>
-                <a href="https://maps.app.goo.gl/QeRWJTn1TotzCR2b9?g_st=ac" target="_blank" style="color: white; text-decoration: underline;">
-                    Shop No. 18, Janki Complex, Near Boring Road Crossing, Patna - 800001, Bihar
-                </a>
-            </p>
-            <p>Phone: <a href="tel:9430943872" style="color: white; text-decoration: underline;">9430943872</a></p>
             <p style="margin-top: 10px; opacity: 0.8;">Your Smile, Our Priority.</p>
         </div>
     </footer>
@@ -1434,40 +804,6 @@
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
 
-        // Floating Action Button
-        document.getElementById('fabButton').addEventListener('click', function() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        // Add ripple effect to buttons
-        document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(102, 126, 234, 0.3);
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                `;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
         // Carousel Navigation
         const carouselDots = document.querySelectorAll('.carousel-dot');
         const carousel = document.querySelector('.carousel');
@@ -1508,18 +844,6 @@
         
         // Update dots every second
         setInterval(updateActiveDot, 1000);
-
-        // Add CSS for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
 
         // Form validation for age
         document.getElementById('age').addEventListener('input', function() {
