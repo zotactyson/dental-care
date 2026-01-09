@@ -537,6 +537,50 @@
         .adc-bg-blue { background-color: #1a73e8; }
         .adc-bg-teal { background-color: #00897b; }
 
+        /* Google Maps Reviews Button */
+        .google-reviews-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .google-reviews-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
+            background: linear-gradient(135deg, #34A853 0%, #4285F4 100%);
+        }
+
+        .google-reviews-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Animation for the Google icon */
+        @keyframes googlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .google-reviews-btn i {
+            animation: googlePulse 2s infinite ease-in-out;
+        }
+
+        .google-reviews-btn:hover i {
+            animation: googlePulse 0.8s infinite ease-in-out;
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -691,9 +735,9 @@
             color: #667eea;
         }
 
-        .location-icon {
-            animation: locationBounce 2s infinite ease-in-out;
-            color: #667eea;
+        .google-icon {
+            animation: googleSpin 3s infinite ease-in-out;
+            color: #4285F4;
         }
 
         .call-icon {
@@ -714,15 +758,26 @@
             }
         }
 
-        @keyframes locationBounce {
+        @keyframes googleSpin {
             0%, 100% { 
-                transform: translateY(0) rotate(0deg); 
+                transform: rotate(0deg) scale(1); 
+                color: #4285F4;
+                text-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
             }
             25% { 
-                transform: translateY(-5px) rotate(-10deg); 
+                transform: rotate(90deg) scale(1.1); 
+                color: #34A853;
+                text-shadow: 0 0 10px rgba(52, 168, 83, 0.7);
+            }
+            50% { 
+                transform: rotate(180deg) scale(1); 
+                color: #FBBC05;
+                text-shadow: 0 0 10px rgba(251, 188, 5, 0.7);
             }
             75% { 
-                transform: translateY(-5px) rotate(10deg); 
+                transform: rotate(270deg) scale(1.1); 
+                color: #EA4335;
+                text-shadow: 0 0 10px rgba(234, 67, 53, 0.7);
             }
         }
 
@@ -744,9 +799,9 @@
             text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
         }
 
-        .mobile-nav-btn:hover .location-icon {
-            animation: locationBounce 1s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+        .mobile-nav-btn:hover .google-icon {
+            animation: googleSpin 1s infinite ease-in-out;
+            text-shadow: 0 0 15px rgba(66, 133, 244, 0.8);
         }
 
         .mobile-nav-btn:hover .call-icon {
@@ -889,6 +944,11 @@
 
             #custom-review-engine {
                 padding: 30px 10px;
+            }
+
+            .google-reviews-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
             }
         }
 
@@ -1163,6 +1223,15 @@
                         </p>
                     </div>
                 </div>
+                
+                <!-- Google Maps Reviews Button -->
+                <div class="google-reviews-button-container" style="margin-top: 40px; text-align: center;">
+                    <a href="https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8" 
+                       target="_blank" 
+                       class="google-reviews-btn">
+                        <i class="fab fa-google"></i> View Reviews on Google Maps
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1195,9 +1264,9 @@
                 <span class="mobile-nav-icon appointment-icon"><i class="fas fa-calendar-check"></i></span>
                 <span>Book Appointment</span>
             </a>
-            <a href="https://maps.app.goo.gl/BmgeDk9XtJNuk1zC9" class="mobile-nav-btn" target="_blank">
-                <span class="mobile-nav-icon location-icon"><i class="fas fa-map-marker-alt"></i></span>
-                <span>Location</span>
+            <a href="https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8" class="mobile-nav-btn" target="_blank">
+                <span class="mobile-nav-icon google-icon"><i class="fab fa-google"></i></span>
+                <span>Google Reviews</span>
             </a>
             <a href="tel:9430943872" class="mobile-nav-btn">
                 <span class="mobile-nav-icon call-icon"><i class="fas fa-phone-alt"></i></span>
@@ -1262,6 +1331,13 @@
         // Floating Action Button
         document.getElementById('fabButton').addEventListener('click', function() {
             document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
+            
+            // After scrolling, show a small tooltip about reviews
+            setTimeout(() => {
+                if(confirm("Would you like to see our Google Reviews?")) {
+                    window.open('https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8', '_blank');
+                }
+            }, 1000);
         });
 
         // Carousel Navigation
