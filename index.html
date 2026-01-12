@@ -735,9 +735,9 @@
             color: #667eea;
         }
 
-        .google-icon {
-            animation: googleSpin 3s infinite ease-in-out;
-            color: #4285F4;
+        .location-icon {
+            animation: locationPulse 2s infinite ease-in-out;
+            color: #34A853;
         }
 
         .call-icon {
@@ -758,26 +758,16 @@
             }
         }
 
-        @keyframes googleSpin {
+        @keyframes locationPulse {
             0%, 100% { 
-                transform: rotate(0deg) scale(1); 
-                color: #4285F4;
-                text-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
-            }
-            25% { 
-                transform: rotate(90deg) scale(1.1); 
+                transform: scale(1); 
                 color: #34A853;
-                text-shadow: 0 0 10px rgba(52, 168, 83, 0.7);
+                text-shadow: 0 0 5px rgba(52, 168, 83, 0.5);
             }
             50% { 
-                transform: rotate(180deg) scale(1); 
-                color: #FBBC05;
-                text-shadow: 0 0 10px rgba(251, 188, 5, 0.7);
-            }
-            75% { 
-                transform: rotate(270deg) scale(1.1); 
-                color: #EA4335;
-                text-shadow: 0 0 10px rgba(234, 67, 53, 0.7);
+                transform: scale(1.2); 
+                color: #0d904f;
+                text-shadow: 0 0 15px rgba(52, 168, 83, 0.8);
             }
         }
 
@@ -799,9 +789,9 @@
             text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
         }
 
-        .mobile-nav-btn:hover .google-icon {
-            animation: googleSpin 1s infinite ease-in-out;
-            text-shadow: 0 0 15px rgba(66, 133, 244, 0.8);
+        .mobile-nav-btn:hover .location-icon {
+            animation: locationPulse 0.8s infinite ease-in-out;
+            text-shadow: 0 0 15px rgba(52, 168, 83, 0.8);
         }
 
         .mobile-nav-btn:hover .call-icon {
@@ -981,6 +971,7 @@
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="#appointment"><i class="fas fa-calendar-check"></i> Appointment</a></li>
                 <li><a href="#reviews"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8" target="_blank"><i class="fas fa-map-marker-alt"></i> Location</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -1265,8 +1256,8 @@
                 <span>Book Appointment</span>
             </a>
             <a href="https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8" class="mobile-nav-btn" target="_blank">
-                <span class="mobile-nav-icon google-icon"><i class="fab fa-google"></i></span>
-                <span>Google Reviews</span>
+                <span class="mobile-nav-icon location-icon"><i class="fas fa-map-marker-alt"></i></span>
+                <span>Location</span>
             </a>
             <a href="tel:9430943872" class="mobile-nav-btn">
                 <span class="mobile-nav-icon call-icon"><i class="fas fa-phone-alt"></i></span>
@@ -1331,13 +1322,6 @@
         // Floating Action Button
         document.getElementById('fabButton').addEventListener('click', function() {
             document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
-            
-            // After scrolling, show a small tooltip about reviews
-            setTimeout(() => {
-                if(confirm("Would you like to see our Google Reviews?")) {
-                    window.open('https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8', '_blank');
-                }
-            }, 1000);
         });
 
         // Carousel Navigation
