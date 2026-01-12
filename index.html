@@ -29,6 +29,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
         color: #333;
+        overflow-x: hidden;
       }
 
       /* Header */
@@ -289,68 +290,253 @@
         transform: scale(1.2);
       }
 
-      /* Hero Section */
+      /* Hero Section with Typing Effect */
       .hero {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         padding: 100px 2rem;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
 
-      .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        animation: fadeInUp 1s ease;
+      /* Animated Background for Hero */
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        animation: floatBackground 20s infinite linear;
       }
 
-      .hero p {
-        font-size: 1.5rem;
+      @keyframes floatBackground {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+
+      /* Typing Effect Styles */
+      .typing-container {
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 2rem;
-        animation: fadeInUp 1s ease 0.2s;
-        animation-fill-mode: both;
+        position: relative;
+        z-index: 1;
       }
 
+      .typing-text {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        position: relative;
+        min-height: 90px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .typing-text {
+          font-size: 2.2rem;
+          min-height: 60px;
+        }
+        .typing-container {
+          min-height: 120px;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .typing-text {
+          font-size: 1.8rem;
+          min-height: 50px;
+        }
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 4px;
+        height: 80px;
+        background: linear-gradient(to bottom, white, #f0f4ff);
+        margin-left: 8px;
+        animation: blink 0.7s infinite, cursorGlow 2s infinite;
+        vertical-align: middle;
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      @media (max-width: 768px) {
+        .typing-cursor {
+          height: 60px;
+          width: 3px;
+        }
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+
+      @keyframes cursorGlow {
+        0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+      }
+
+      /* Hero Subtitle */
+      .hero-subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeInUp 1s ease 3.5s forwards;
+        animation-fill-mode: both;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+
+      /* Enhanced Button Animation */
       .cta-buttons {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
         justify-content: center;
         flex-wrap: wrap;
-        animation: fadeInUp 1s ease 0.4s;
+        animation: fadeInUp 1s ease 4s forwards;
         animation-fill-mode: both;
+        position: relative;
+        z-index: 1;
       }
 
       .btn {
-        padding: 15px 30px;
+        padding: 18px 40px;
         border: none;
         border-radius: 50px;
-        font-size: 1rem;
+        font-size: 1.1rem;
         cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         text-decoration: none;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        min-width: 220px;
       }
 
       .btn-primary {
-        background: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
         color: #667eea;
-        font-weight: bold;
+        box-shadow: 
+          0 0 30px rgba(255, 255, 255, 0.4),
+          0 10px 40px rgba(102, 126, 234, 0.3);
+        animation: pulseGlow 2s infinite ease-in-out;
       }
 
       .btn-secondary {
         background: transparent;
         color: white;
-        border: 2px solid white;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 
+          0 20px 40px rgba(0, 0, 0, 0.25),
+          0 0 40px rgba(255, 255, 255, 0.6);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+        color: #764ba2;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: white;
+      }
+
+      /* Button Shimmer Effect */
+      .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 
+            0 0 30px rgba(255, 255, 255, 0.4),
+            0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 
+            0 0 40px rgba(255, 255, 255, 0.6),
+            0 15px 50px rgba(102, 126, 234, 0.5);
+        }
+      }
+
+      /* Sparkle Animation */
+      .sparkle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        pointer-events: none;
+        opacity: 0;
+        background: radial-gradient(circle, white 50%, transparent 100%);
+        border-radius: 50%;
+        animation: sparkleFloat 1s ease-out forwards;
+        z-index: 2;
+      }
+
+      @keyframes sparkleFloat {
+        0% {
+          transform: translate(0, 0) scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--tx), var(--ty)) scale(1);
+          opacity: 0;
+        }
       }
 
       /* Appointment Form Section (Below Hero) */
       .appointment-section {
         padding: 80px 2rem;
         background: #f8f9fa;
+        position: relative;
       }
 
       .container {
@@ -365,37 +551,63 @@
         color: #667eea;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        margin: 20px auto;
+        border-radius: 2px;
       }
 
       .booking-form {
         background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
         margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .booking-form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(to right, #667eea, #764ba2);
       }
 
       .form-group {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.8rem;
       }
 
       .form-group label {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.8rem;
         color: #667eea;
-        font-weight: bold;
+        font-weight: 600;
+        font-size: 1.1rem;
       }
 
       .form-group input,
       .form-group textarea,
       .form-group select {
         width: 100%;
-        padding: 12px;
+        padding: 15px;
         border: 2px solid #e0e0e0;
-        border-radius: 8px;
+        border-radius: 10px;
         font-size: 1rem;
-        transition: border-color 0.3s;
+        transition: all 0.3s;
+        background: #f8f9fa;
+        font-family: inherit;
       }
 
       .form-group input:focus,
@@ -403,42 +615,47 @@
       .form-group select:focus {
         outline: none;
         border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        background: white;
+        transform: translateY(-2px);
       }
 
       /* Form row for age and gender side by side */
       .form-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
       }
 
       /* Clinic Description Section */
       .clinic-description {
-        padding: 80px 2rem;
-        background: white;
+        padding: 100px 2rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        position: relative;
       }
 
       .clinic-description h3 {
         text-align: center;
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
         color: #667eea;
         font-family: "Montserrat", sans-serif;
         font-weight: 700;
       }
 
       .description-content {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
         text-align: center;
+        position: relative;
+        z-index: 1;
       }
 
       .description-content p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         line-height: 1.8;
         color: #555;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
       }
 
       /* NEW REVIEWS SECTION - Custom Review Engine */
@@ -460,32 +677,33 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
+        gap: 25px;
       }
 
       .adc-rev-card {
         background: #ffffff;
-        border-radius: 8px;
-        padding: 24px;
+        border-radius: 12px;
+        padding: 30px;
         position: relative;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #f0f0f0;
       }
 
       .adc-rev-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
       }
 
       .adc-rev-header {
         display: flex;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 15px;
       }
 
       .adc-rev-avatar {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         margin-right: 15px;
         display: flex;
@@ -493,8 +711,9 @@
         justify-content: center;
         font-weight: bold;
         color: #fff;
-        font-size: 20px;
+        font-size: 22px;
         overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       }
 
       .adc-rev-avatar img {
@@ -505,52 +724,54 @@
 
       .adc-rev-user-details h4 {
         margin: 0;
-        font-size: 16px;
+        font-size: 17px;
         color: #202124;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .adc-rev-user-details span {
-        font-size: 13px;
+        font-size: 14px;
         color: #70757a;
       }
 
       .adc-rev-google-icon {
         position: absolute;
-        top: 24px;
-        right: 24px;
-        width: 20px;
-        height: 20px;
+        top: 30px;
+        right: 30px;
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
       }
 
       .adc-rev-stars {
         color: #fbbc05;
-        font-size: 20px;
-        margin-bottom: 12px;
+        font-size: 22px;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
       }
 
       .adc-rev-content {
-        font-size: 14px;
-        line-height: 1.5;
+        font-size: 15px;
+        line-height: 1.6;
         color: #3c4043;
         margin: 0;
       }
 
       /* Specific avatar colors to match the image */
       .adc-bg-gray {
-        background-color: #546e7a;
+        background: linear-gradient(135deg, #546e7a, #78909c);
       }
       .adc-bg-pink {
-        background-color: #e91e63;
+        background: linear-gradient(135deg, #e91e63, #f06292);
       }
       .adc-bg-orange {
-        background-color: #e65100;
+        background: linear-gradient(135deg, #e65100, #ff9800);
       }
       .adc-bg-blue {
-        background-color: #1a73e8;
+        background: linear-gradient(135deg, #1a73e8, #4285f4);
       }
       .adc-bg-teal {
-        background-color: #00897b;
+        background: linear-gradient(135deg, #00897b, #26a69a);
       }
 
       /* Google Maps Reviews Button */
@@ -558,45 +779,65 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 15px 30px;
+        gap: 12px;
+        padding: 18px 35px;
         background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
         color: white;
         text-decoration: none;
         border-radius: 50px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
-        transition: all 0.3s ease;
+        font-weight: 700;
+        font-size: 1.2rem;
+        box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        transition: all 0.4s ease;
         border: none;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .google-reviews-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      .google-reviews-btn:hover::before {
+        left: 100%;
       }
 
       .google-reviews-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(66, 133, 244, 0.4);
         background: linear-gradient(135deg, #34a853 0%, #4285f4 100%);
       }
 
       .google-reviews-btn:active {
-        transform: translateY(-1px);
+        transform: translateY(-2px);
       }
 
       /* Animation for the Google icon */
       @keyframes googlePulse {
-        0% {
+        0%, 100% {
           transform: scale(1);
         }
         50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
+          transform: scale(1.2);
         }
       }
 
       .google-reviews-btn i {
         animation: googlePulse 2s infinite ease-in-out;
+        font-size: 1.3rem;
       }
 
       .google-reviews-btn:hover i {
@@ -608,7 +849,7 @@
       #sns-dentist-section {
         background-color: #f9fbfd; /* Very light blue/grey background */
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        padding: 60px 20px;
+        padding: 80px 20px;
         color: #333;
         box-sizing: border-box;
         line-height: 1.6;
@@ -622,41 +863,54 @@
 
       /* Container */
       #sns-dentist-section .sns-container {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
       }
 
       /* Header Styles */
       #sns-dentist-section .sns-header {
         text-align: center;
-        margin-bottom: 50px;
-        max-width: 800px;
+        margin-bottom: 60px;
+        max-width: 900px;
         margin-left: auto;
         margin-right: auto;
       }
 
       #sns-dentist-section .sns-title {
         color: #0056b3; /* Professional Dental Blue */
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-weight: 800;
+        position: relative;
+      }
+
+      #sns-dentist-section .sns-title::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(to right, #0056b3, #00a8cc);
+        margin: 15px auto;
+        border-radius: 2px;
       }
 
       #sns-dentist-section .sns-subtitle {
-        font-size: 1.2rem;
-        font-weight: 500;
+        font-size: 1.4rem;
+        font-weight: 600;
         color: #555;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
 
       #sns-dentist-section .sns-brand-highlight {
         color: #00a8cc; /* Secondary Cyan/Teal color */
-        font-weight: bold;
+        font-weight: 800;
+        text-shadow: 0 2px 5px rgba(0, 168, 204, 0.2);
       }
 
       #sns-dentist-section .sns-description {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #666;
+        line-height: 1.8;
       }
 
       /* Team Grid */
@@ -664,31 +918,42 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 30px;
-        margin-bottom: 60px;
+        gap: 40px;
+        margin-bottom: 80px;
       }
 
       /* Profile Card */
       #sns-dentist-section .sns-profile-card {
         background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Soft shadow */
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         overflow: hidden;
         width: 100%;
-        max-width: 400px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        max-width: 450px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
         border: 1px solid #eef2f5;
+        position: relative;
+      }
+
+      #sns-dentist-section .sns-profile-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(to right, #0056b3, #00a8cc);
       }
 
       #sns-dentist-section .sns-profile-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 86, 179, 0.15);
+        transform: translateY(-15px);
+        box-shadow: 0 30px 80px rgba(0, 86, 179, 0.15);
       }
 
       #sns-dentist-section .sns-img-wrapper {
-        height: 250px;
+        height: 300px;
         overflow: hidden;
-        background-color: #e0e7ef;
+        background: linear-gradient(135deg, #e0e7ef 0%, #f0f4f8 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -698,126 +963,198 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
+        transition: transform 0.7s ease;
       }
 
       #sns-dentist-section .sns-profile-card:hover .sns-profile-img {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
 
       #sns-dentist-section .sns-card-content {
-        padding: 25px;
+        padding: 35px;
         text-align: center;
       }
 
       #sns-dentist-section .sns-doc-name {
         color: #0056b3;
-        font-size: 1.5rem;
-        margin: 0 0 5px;
+        font-size: 1.8rem;
+        margin: 0 0 10px;
+        font-weight: 700;
       }
 
       #sns-dentist-section .sns-doc-degree {
         display: inline-block;
-        background-color: #e6f4f9;
+        background: linear-gradient(135deg, #e6f4f9, #d1ecf1);
         color: #0081a7;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-bottom: 15px;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0, 129, 167, 0.1);
       }
 
       #sns-dentist-section .sns-doc-bio {
-        font-size: 0.95rem;
+        font-size: 1rem;
+        line-height: 1.7;
         color: #555;
         margin: 0;
       }
 
       /* Features & CTA Section */
       #sns-dentist-section .sns-features-wrapper {
-        background-color: #ffffff;
-        border-left: 5px solid #00a8cc;
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbfd 100%);
+        border-left: 6px solid #00a8cc;
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #sns-dentist-section .sns-features-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(0, 168, 204, 0.1) 0%, transparent 70%);
       }
 
       #sns-dentist-section .sns-features-title {
         color: #333;
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         margin-top: 0;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
       }
 
       #sns-dentist-section .sns-feature-list {
         list-style: none;
         padding: 0;
-        margin: 0 0 30px 0;
+        margin: 0 0 40px 0;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
       }
 
       #sns-dentist-section .sns-feature-list li {
         position: relative;
-        padding-left: 25px;
+        padding-left: 40px;
         color: #555;
+        font-size: 1.1rem;
+        line-height: 1.6;
       }
 
       #sns-dentist-section .sns-feature-list li::before {
-        content: "✔"; /* Simple checkmark icon */
+        content: "✓";
         position: absolute;
         left: 0;
         top: 0;
         color: #00a8cc;
         font-weight: bold;
+        font-size: 1.3rem;
+        background: linear-gradient(135deg, #e6f4f9, #d1ecf1);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 168, 204, 0.2);
       }
 
       #sns-dentist-section .sns-cta-container {
         text-align: center;
-        border-top: 1px solid #eee;
-        padding-top: 30px;
+        border-top: 2px solid #eee;
+        padding-top: 40px;
+        position: relative;
+        z-index: 1;
       }
 
       #sns-dentist-section .sns-cta-btn {
-        display: inline-block;
-        background-color: #0056b3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        background: linear-gradient(135deg, #0056b3 0%, #0077cc 100%);
         color: #fff;
-        padding: 15px 35px;
+        padding: 20px 45px;
         border-radius: 50px;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-top: 15px;
-        transition: background-color 0.3s ease;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        transition: all 0.4s ease;
+        box-shadow: 0 15px 40px rgba(0, 86, 179, 0.3);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #sns-dentist-section .sns-cta-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      #sns-dentist-section .sns-cta-btn:hover::before {
+        left: 100%;
       }
 
       #sns-dentist-section .sns-cta-btn:hover {
-        background-color: #003d80;
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 25px 50px rgba(0, 86, 179, 0.4);
+        background: linear-gradient(135deg, #0077cc 0%, #0056b3 100%);
       }
 
       /* Responsive Adjustments */
       @media (max-width: 768px) {
         #sns-dentist-section {
-          padding: 40px 15px;
+          padding: 50px 15px;
         }
 
         #sns-dentist-section .sns-title {
-          font-size: 2rem;
+          font-size: 2.2rem;
+        }
+
+        #sns-dentist-section .sns-subtitle {
+          font-size: 1.2rem;
         }
 
         #sns-dentist-section .sns-team-grid {
           flex-direction: column;
           align-items: center;
+          gap: 30px;
         }
 
         #sns-dentist-section .sns-features-wrapper {
+          padding: 30px;
           text-align: center;
-          padding: 25px;
         }
 
         #sns-dentist-section .sns-feature-list {
           text-align: left;
+          grid-template-columns: 1fr;
+        }
+
+        #sns-dentist-section .sns-cta-btn {
+          padding: 18px 35px;
+          font-size: 1.1rem;
         }
       }
 
@@ -826,12 +1163,28 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         text-align: center;
-        padding: 3rem 2rem 4rem;
+        padding: 4rem 2rem 5rem;
         margin-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
       }
 
       .footer-logo {
         margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
       }
 
       .footer-logo-container {
@@ -842,8 +1195,8 @@
 
       .footer-logo-icon-wrapper {
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -857,10 +1210,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       }
 
       .footer-logo-icon {
-        font-size: 18px;
+        font-size: 20px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -874,21 +1228,29 @@
 
       .footer-logo-main {
         font-family: "Montserrat", sans-serif;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 700;
         color: white;
         line-height: 1.1;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       }
 
       .footer-logo-subtitle {
         font-family: "Montserrat", sans-serif;
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 500;
         color: #e0e7ff;
-        letter-spacing: 1px;
+        letter-spacing: 1.2px;
         text-transform: uppercase;
         margin-top: 2px;
         opacity: 0.9;
+      }
+
+      footer p {
+        margin: 10px 0;
+        position: relative;
+        z-index: 1;
+        font-size: 1.1rem;
       }
 
       /* Animations */
@@ -911,16 +1273,18 @@
         left: 0;
         right: 0;
         background: white;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        padding: 10px;
+        padding: 12px;
         border-top: 1px solid #e0e0e0;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
       }
 
       .mobile-nav-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
+        gap: 8px;
       }
 
       .mobile-nav-btn {
@@ -928,14 +1292,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px 5px;
+        padding: 12px 5px;
         text-decoration: none;
         color: #667eea;
-        font-size: 0.7rem;
-        border-radius: 8px;
+        font-size: 0.75rem;
+        border-radius: 12px;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        font-weight: 600;
       }
 
       .mobile-nav-btn:hover {
@@ -963,15 +1328,23 @@
       }
 
       .mobile-nav-icon {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #667eea;
+        border-radius: 50%;
+        background: rgba(102, 126, 234, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-nav-btn:hover .mobile-nav-icon {
+        background: rgba(102, 126, 234, 0.2);
+        transform: scale(1.1);
       }
 
       /* Animated Icons for Mobile Navigation */
@@ -991,8 +1364,7 @@
       }
 
       @keyframes appointmentPulse {
-        0%,
-        100% {
+        0%, 100% {
           transform: scale(1);
           color: #667eea;
           text-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
@@ -1005,8 +1377,7 @@
       }
 
       @keyframes locationPulse {
-        0%,
-        100% {
+        0%, 100% {
           transform: scale(1);
           color: #34a853;
           text-shadow: 0 0 5px rgba(52, 168, 83, 0.5);
@@ -1019,21 +1390,13 @@
       }
 
       @keyframes phoneRing {
-        0%,
-        100% {
+        0%, 100% {
           transform: rotate(0deg);
         }
-        10%,
-        30%,
-        50%,
-        70%,
-        90% {
+        10%, 30%, 50%, 70%, 90% {
           transform: rotate(-15deg);
         }
-        20%,
-        40%,
-        60%,
-        80% {
+        20%, 40%, 60%, 80% {
           transform: rotate(15deg);
         }
       }
@@ -1064,33 +1427,47 @@
       }
 
       .fab {
-        width: 60px;
-        height: 60px;
+        width: 65px;
+        height: 65px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
-        font-size: 1.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        font-size: 1.8rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-        animation: pulse 2s infinite;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite ease-in-out;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fab::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
       }
 
       .fab:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        transform: scale(1.15);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        animation: none;
       }
 
       @keyframes pulse {
-        0%,
-        100% {
+        0%, 100% {
           transform: scale(1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         50% {
-          transform: scale(1.05);
+          transform: scale(1.1);
+          box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
       }
 
@@ -1108,9 +1485,10 @@
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           flex-direction: column;
           padding: 2rem;
-          gap: 1rem;
+          gap: 1.5rem;
           transform: translateX(-100%);
           transition: transform 0.3s;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .nav-links.active {
@@ -1130,14 +1508,6 @@
           height: 8px;
         }
 
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1.2rem;
-        }
-
         .section-title {
           font-size: 2rem;
         }
@@ -1148,6 +1518,7 @@
 
         footer {
           margin-bottom: 80px;
+          padding: 3rem 1.5rem 4rem;
         }
 
         .logo-container {
@@ -1176,12 +1547,16 @@
           gap: 0;
         }
 
+        .booking-form {
+          padding: 2rem;
+        }
+
         .clinic-description h3 {
-          font-size: 1.8rem;
+          font-size: 2rem;
         }
 
         .description-content p {
-          font-size: 1rem;
+          font-size: 1.1rem;
         }
 
         .adc-rev-grid {
@@ -1189,7 +1564,7 @@
         }
 
         .adc-rev-card {
-          padding: 20px;
+          padding: 25px;
         }
 
         #custom-review-engine {
@@ -1197,14 +1572,51 @@
         }
 
         .google-reviews-btn {
-          padding: 12px 24px;
+          padding: 15px 30px;
+          font-size: 1.1rem;
+        }
+
+        .btn {
+          padding: 16px 30px;
           font-size: 1rem;
+          min-width: 200px;
+        }
+
+        .cta-buttons {
+          gap: 1.5rem;
         }
       }
 
       @media (min-width: 769px) {
         .fab-container {
           display: block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 80px 1.5rem;
+        }
+        
+        .cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .btn {
+          width: 100%;
+          max-width: 280px;
+        }
+        
+        .mobile-nav-btn {
+          padding: 10px 3px;
+          font-size: 0.7rem;
+        }
+        
+        .mobile-nav-icon {
+          font-size: 1.5rem;
+          width: 40px;
+          height: 40px;
         }
       }
     </style>
@@ -1302,15 +1714,17 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="container">
-        <h1>Welcome to Sparkle and Shine Dental Clinic</h1>
-        <p>Your Smile, Our Priority.</p>
+        <div class="typing-container">
+          <div class="typing-text" id="typingText"></div>
+          <p class="hero-subtitle">Your Smile, Our Priority.</p>
+        </div>
         <div class="cta-buttons">
-          <a href="#appointment" class="btn btn-primary"
-            ><i class="fas fa-calendar-check"></i> Book Appointment</a
-          >
-          <a href="tel:9430943872" class="btn btn-secondary"
-            ><i class="fas fa-phone"></i> Call Now</a
-          >
+          <a href="#appointment" class="btn btn-primary" id="appointmentBtn">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="tel:9430943872" class="btn btn-secondary">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
         </div>
       </div>
     </section>
@@ -1392,7 +1806,7 @@
               ></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%">
-              Submit Appointment Request
+              <i class="fas fa-paper-plane"></i> Submit Appointment Request
             </button>
           </form>
         </div>
@@ -1533,7 +1947,7 @@
           <!-- Google Maps Reviews Button -->
           <div
             class="google-reviews-button-container"
-            style="margin-top: 40px; text-align: center"
+            style="margin-top: 50px; text-align: center"
           >
             <a
               href="https://maps.app.goo.gl/TcWgHSwj4rkaTp6c8"
@@ -1617,13 +2031,13 @@
           </ul>
 
           <div class="sns-cta-container">
-            <p>
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 25px;">
               Make Sparkle and Shine your trusted partner for all your dental
               needs.
             </p>
-            <a href="#appointment" class="sns-cta-btn"
-              >Book Your Appointment Today</a
-            >
+            <a href="#appointment" class="sns-cta-btn">
+              <i class="fas fa-calendar-check"></i> Book Your Appointment Today
+            </a>
           </div>
         </div>
       </div>
@@ -1646,7 +2060,7 @@
           </div>
         </div>
         <p>&copy; 2026 Sparkle and Shine Dental Clinic. All rights reserved.</p>
-        <p style="margin-top: 10px; opacity: 0.8">Your Smile, Our Priority.</p>
+        <p style="margin-top: 15px; opacity: 0.9; font-size: 1.2rem;">Your Smile, Our Priority.</p>
       </div>
     </footer>
 
@@ -1692,14 +2106,110 @@
 
       menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
       });
 
       // Close menu when clicking on a link
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
+          menuToggle.classList.remove("active");
         });
       });
+
+      // Typing Effect
+      function typeWriter(element, text, speed = 80, callback = null) {
+        let i = 0;
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        element.appendChild(cursor);
+        
+        function type() {
+          if (i < text.length) {
+            // Insert text before cursor
+            const textNode = document.createTextNode(text.charAt(i));
+            element.insertBefore(textNode, cursor);
+            i++;
+            setTimeout(type, speed);
+          } else {
+            // Remove cursor animation when done
+            cursor.style.animation = 'none';
+            // Add final blink
+            cursor.style.animation = 'blink 1s infinite';
+            setTimeout(() => {
+              if (callback) callback();
+            }, 500);
+          }
+        }
+        // Start typing after a brief delay
+        setTimeout(type, 500);
+      }
+
+      // Initialize typing effect when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const typingText = document.getElementById('typingText');
+        const text = "Welcome to Sparkle and Shine Dental Clinic";
+        typeWriter(typingText, text, 90);
+      });
+
+      // Enhanced Button Animation with Sparkles
+      const appointmentBtn = document.getElementById('appointmentBtn');
+      
+      appointmentBtn.addEventListener('mouseenter', function(e) {
+        createSparkles(e, this);
+      });
+
+      appointmentBtn.addEventListener('click', function(e) {
+        createSparkles(e, this);
+        setTimeout(() => {
+          document.getElementById('appointment').scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
+      });
+
+      // Sparkle creation function
+      function createSparkles(e, element) {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Create 10-12 sparkles for better effect
+        const sparkleCount = 12;
+        
+        for (let i = 0; i < sparkleCount; i++) {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          
+          // Random direction and distance
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 40 + Math.random() * 60;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance;
+          
+          // Random size
+          const size = 4 + Math.random() * 8;
+          sparkle.style.width = `${size}px`;
+          sparkle.style.height = `${size}px`;
+          
+          // Random animation delay
+          const delay = Math.random() * 0.3;
+          sparkle.style.animationDelay = `${delay}s`;
+          
+          sparkle.style.setProperty('--tx', `${tx}px`);
+          sparkle.style.setProperty('--ty', `${ty}px`);
+          sparkle.style.left = `${x}px`;
+          sparkle.style.top = `${y}px`;
+          
+          element.appendChild(sparkle);
+          
+          // Remove sparkle after animation
+          setTimeout(() => {
+            sparkle.remove();
+          }, 1000);
+        }
+      }
 
       // Form Submission
       document
@@ -1715,6 +2225,12 @@
           const date = document.getElementById("date").value;
           const service = document.getElementById("service").value;
           const message = document.getElementById("message").value;
+
+          // Validation
+          if (!name || !age || !gender || !phone || !date || !service) {
+            alert("Please fill in all required fields (*)");
+            return;
+          }
 
           // Create WhatsApp message with new fields
           const whatsappMessage = `*New Appointment Request*%0A%0A*Patient Details:*%0AName: ${name}%0AAge: ${age}%0AGender: ${gender}%0APhone: ${phone}%0AEmail: ${email}%0A%0A*Appointment Details:*%0APreferred Date: ${date}%0AService: ${service}%0AAdditional Info: ${message}`;
@@ -1744,7 +2260,10 @@
         .addEventListener("click", function () {
           document
             .getElementById("appointment")
-            .scrollIntoView({ behavior: "smooth" });
+            .scrollIntoView({ 
+              behavior: "smooth",
+              block: "start"
+            });
         });
 
       // Carousel Navigation
@@ -1836,6 +2355,24 @@
             }
         `;
       document.head.appendChild(style);
+
+      // Smooth scrolling for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
     </script>
   </body>
 </html>
